@@ -1,0 +1,11 @@
+{
+    "name": "DmrCard",
+    "alias": "dmrcard",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DmrCard\\App\\Providers\\DmrCardServiceProvider"
+    ],
+    "files": []
+}

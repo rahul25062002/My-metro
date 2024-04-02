@@ -1,0 +1,11 @@
+{
+    "name": "Station",
+    "alias": "station",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Station\\App\\Providers\\StationServiceProvider"
+    ],
+    "files": []
+}

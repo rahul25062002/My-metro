@@ -1,0 +1,6 @@
+{
+    "Train": true,
+    "Users": true,
+    "Station": true,
+    "DmrCard": true
+}

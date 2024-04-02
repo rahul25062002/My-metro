@@ -1,0 +1,11 @@
+{
+    "name": "Train",
+    "alias": "train",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Train\\App\\Providers\\TrainServiceProvider"
+    ],
+    "files": []
+}
