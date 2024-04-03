@@ -18,4 +18,5 @@ Route::group([], function () {
     Route::resource('train', TrainController::class)->names('train');
 });
 
-Route::get('/getAllTrain',[TrainController::class,'index']);
+Route::get('getAllTrain',[TrainController::class,'index']);
+Route::post('editTrain/{$id}',[TrainController::class,'edit']);
