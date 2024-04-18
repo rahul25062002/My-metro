@@ -5,9 +5,9 @@
         <div class='bg-red-200 w-[100%] border border-black flex  justify-center  top-[15%] p-4 '>
               <form action="" class='flex flex-col gap-4 items-center  border border-black w-[80%] p-4'>
                 <span class='font-bold text-2xl '>Add New Trains</span>
-                <div class='flex  borde w-[80%]'>
+                <div class='flex  borde w-[100%]'>
                        
-                    <label for="" class='mx-4'>
+                    <label for="" class='mx-4 w-[5rem]'>
                         Train No.:-
                     </label>
                     
@@ -16,9 +16,9 @@
                 
                 </div>
                 
-                <div class='flex  w-[80%]'>
+                <div class='flex  w-[100%]'>
 
-                    <label for=""  class='mx-2 '>
+                    <label for=""  class='mx-2  w-[6rem] '>
                         Start From :-
                     </label>
                     
@@ -27,9 +27,9 @@
                 
                 </div>
 
-                 <div class='flex w-[80%] '>
+                 <div class='flex w-[100%] '>
 
-                     <label for=""  class=' mx-[2.3%]'>
+                     <label for=""  class=' mx-4  w-[5rem]'>
                          End At :-
                      </label>
                      
@@ -38,9 +38,9 @@
                      
                  </div>
 
-                 <div class='flex w-[80%] '>
+                 <div class='flex w-[100%] '>
 
-                    <label for=""  class=' mx-[2.5%]'>
+                    <label for=""  class=' mx-4  w-[5rem]'>
                         Route :-
                     </label>
                     
@@ -49,11 +49,11 @@
                     
                 </div>
                 
-                <div class='flex w-[80%]' >
+                <div class='flex w-[100%] border border-black lg:w-[90%] lg:relative lg:right-14' >
 
-                    <div class='flex gap-[15%]  w-[80%] '>
+                    <div class='flex  mx-2 px-2 w-[60%] items-center  border '>
     
-                        <label for=""  class='w-[23%]  '>
+                        <label for=""  class=' w-[6rem]    '>
                             Start Time :-
                         </label>
                         <div >
@@ -67,14 +67,14 @@
                                
                             </select>
                             <select name="" id="" class='appearance-none w-8 text-center  p-1 rounded'  ng-model='selectedStartTime[2]'>
-                                <option value="a" ng-repeat='a in ["AM","PM"]' ><% a %></option>
+                                <option  ng-repeat='a in ["AM","PM"]' ><% a %></option>
                             </select>
                         </div>
                     </div>
                   
-                    <div class='flex gap-[15%]  w-[80%] '>
+                    <div class='flex   w-[60%] items-center justify-end '>
     
-                        <label for=""  class='w-[23%] '>
+                        <label for=""  class='  w-[6rem]'>
                             End Time :-
                         </label>
                             <div>
@@ -89,7 +89,7 @@
                                     
                                 </select>
                                 <select name="" id="" class='appearance-none w-8 text-center  p-1 rounded' >
-                                    <option value="a"  ng-repeat='a in ["AM","PM"]' ><% a %></option>
+                                    <option   ng-repeat='a in ["AM","PM"]' ><% a %></option>
                                 </select>
                             </div>
                     </div>
@@ -126,6 +126,7 @@
                 }
                  console.log(hour)
                 $scope.h= hour;
+            
             };
             
 
@@ -159,7 +160,6 @@
             
             
             angular.element(document).ready(function () {
-		        $scope.searchProducts();
                 $scope.mins();
                 $scope.hours();
 
