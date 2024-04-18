@@ -2,6 +2,11 @@
 
 @section('listTrain')
     <div class='pl-4 pr-4 flex justify-center  flex-col ' ng-controller="getTrains">
+        
+        <div class="py-2">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" ng-click='addTrain()' >Add Trains</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" ng-click='addRoute()'>Add Routes</button>
+        </div>
         <div class='w-[95%]'>
             <ul class='flex justify-between gap-y-6 bg-gray-400 border-solid border-b-4 border-gray-50 '>
                 <li class='bg-red-100 w-12  text-center'>s.no</li>
@@ -29,6 +34,9 @@
                     </li>
                     
                 </ul>
+
+
+                <toaster-container toaster-options="{'positionClass': 'toast-top-right'}"></toaster-container>
             </div>
         </div>
 
@@ -125,7 +133,18 @@
 
 
     <script>
-         nexgiApp.controller('getTrains',function ($scope,$http){
+         nexgiApp.controller('getTrains',function ($scope,$http,toastr){
+          
+         $scope.addTrain=function (){
+            console.log("clicked to add train");
+            window.location.href = '/addTrain';
+         } 
+         
+         $scope.addRoute=function(){
+            console.log("clicked to add Route")
+         }
+
+
                      $scope.allTrain='';
          $scope.searchProducts=function(){
                 
@@ -166,7 +185,21 @@
 
 
             $scope.delete=function ($id){
-                console.log($id);
+                alert('Are you sure Want to delete this')
+                $http.delete("/delete/"+$id).then((res)=>
+                {
+
+                    if(res.data.succ){
+                        toastr.success(res.data.public_msg, 'Delete');
+                    
+                    }
+                    else{
+                        toastr.error(res.data.public_msg, 'Delete') 
+                    }
+                }
+                
+            ).catch((err)=> toastr.error(err.message, 'Delete'));
+               
             };
             $scope.h=[];
             $scope.m=[];

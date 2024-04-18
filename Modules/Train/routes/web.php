@@ -19,4 +19,7 @@ Route::group([], function () {
 });
 
 Route::get('getAllTrain',[TrainController::class,'index']);
-Route::post('editTrain/{$id}',[TrainController::class,'edit']);
+Route::post('editTrain/{id}',[TrainController::class,'edit']);
+Route::delete('delete/{id}',[TrainController::class,'destroy']);
+Route::get('addTrain',[TrainController::class,'create']);
+Route::post('addTrain',[TrainController::class,'store']);

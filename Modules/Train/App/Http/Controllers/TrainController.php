@@ -65,39 +65,9 @@ class TrainController extends HomeBaseController
      */
     public function create(Request $request)
     {   
-           $_errs=array();
-           $res = $this->getStandarSuccesFormat();
-           try{
-               $data=$request->post();
-               $rule=[
-                'station_from'=>'required',
-                'station_to'=>'required',
-                'start_time'=>'sometimes',
-                'end_time'=>'sometimes',
-                'train_no'=>'sometimes|int'
-               ];
-               $validater=Validator::make($data,$rule);
-               if($validater->fails()){
-                $_errs=$validater->errors();
-                throw new \Exception(__('common.default_process_err_msg'));
-               }
-               $wh=$data;
-               if(isset($data['train_no'])){
-                $wh=[];
-                  $wh['train_no']=$data['train_no'];
-               }
-               
-               $train =Train::updateOrCreate($data,$wh);
-               
-               $res['data']=$train;
-               $res['public_msg']=__('common.default_succ_msg');
-               return response()->json($res);
+         
 
-           }catch(\Exception $ex){
-               return $this->getStandardErrorFormat($ex,$_errs);  
-           }
-
-        // return view('train::create');
+        return view('admin/myTheme/pages/addTrain');
     }
 
     /**
@@ -106,6 +76,37 @@ class TrainController extends HomeBaseController
     public function store(Request $request): RedirectResponse
     {
         //
+        $_errs=array();
+        $res = $this->getStandarSuccesFormat();
+        try{
+            $data=$request->post();
+            $rule=[
+             'station_from'=>'required',
+             'station_to'=>'required',
+             'start_time'=>'sometimes',
+             'end_time'=>'sometimes',
+             'train_no'=>'sometimes|int'
+            ];
+            $validater=Validator::make($data,$rule);
+            if($validater->fails()){
+             $_errs=$validater->errors();
+             throw new \Exception(__('common.default_process_err_msg'));
+            }
+            $wh=$data;
+            if(isset($data['train_no'])){
+             $wh=[];
+               $wh['train_no']=$data['train_no'];
+            }
+            
+            $train =Train::updateOrCreate($data,$wh);
+            
+            $res['data']=$train;
+            $res['public_msg']=__('common.default_succ_msg');
+            return response()->json($res);
+
+        }catch(\Exception $ex){
+            return $this->getStandardErrorFormat($ex,$_errs);  
+        }
     }
 
     /**
@@ -192,7 +193,7 @@ class TrainController extends HomeBaseController
           $res=$this->getStandarSuccesFormat();
         try{
 
-            $validator=Validator::make(['train_no'=>'required|exists:Train,train_no'],['train_no'=>$id]);
+            $validator=Validator::make(['train_no'=>$id],['train_no'=>'required|exists:Train,train_no']);
             if($validator->fails()){
                $_errs=$validator->errors();
                throw new \Exception(__('common.default_process_err_msg'));
